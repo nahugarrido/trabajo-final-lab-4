@@ -1,24 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LandingComponent } from './landing/components/landing/landing.component';
-import { HomeComponent } from './houses/components/home/home.component';
-import { HouseDetailComponent } from './houses/components/house-detail/house-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
-  { path: 'landing', component: LandingComponent },
+  {
+    path: 'landing',
+    loadChildren: () =>
+      import('./landing/landing.module').then((m) => m.LandingModule),
+  },
   {
     path: 'houses',
-    component: HomeComponent,
-    children: [
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      {
-        path: '${id}',
-        component: HouseDetailComponent,
-      } /* ruta dinamica pendiente */,
-    ],
+    loadChildren: () =>
+      import('./houses/houses.module').then((m) => m.HousesModule),
   },
-  { path: '**', redirectTo: 'dashboard' },
+  { path: '**', redirectTo: 'houses' },
 ];
 
 @NgModule({

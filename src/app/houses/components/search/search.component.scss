@@ -1,0 +1,17 @@
+.search-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 4rem 0;
+}
+
+.form {
+    width: 30%;
+}
+
+
+@media(max-width: 768px) {
+    .form {
+        width: 80%;
+    }
+}

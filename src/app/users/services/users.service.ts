@@ -1,45 +1,44 @@
 import { Injectable } from '@angular/core';
-import { House } from '../models/house.model';
+import { User } from '../models/user.model';
+import { environment } from 'src/environments/environment.development';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
-import { environment } from '../../../environments/environment.development';
+import { Observable, catchError, retry, throwError } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class HousesService {
+export class UsersService {
   private baseURL = environment.backendURL;
 
   constructor(private http: HttpClient) {}
 
-  createHouse(house: House) {
+  createuser(user: User) {
     return this.http
-      .post<House>(this.baseURL + '/houses', house)
+      .post<User>(this.baseURL + '/users', user)
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  getHouses(): Observable<House[]> {
+  getusers(): Observable<User[]> {
     return this.http
-      .get<House[]>(this.baseURL + '/houses')
+      .get<User[]>(this.baseURL + '/users')
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  findHouseById(id: number): Observable<House> {
+  finduserById(id: number): Observable<User> {
     return this.http
-      .get<House>(this.baseURL + `/${id}`)
+      .get<User>(this.baseURL + `/${id}`)
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  deleteHouseById(id: number): Observable<any> {
+  deleteuserById(id: number): Observable<any> {
     return this.http
       .delete<any>(this.baseURL + `${id}`)
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  updateHouseById(house: House, id: number): Observable<House> {
+  updateuserById(user: User, id: number): Observable<User> {
     return this.http
-      .put<House>(this.baseURL + `${id}`, house)
+      .put<User>(this.baseURL + `${id}`, user)
       .pipe(retry(1), catchError(this.handleError));
   }
 

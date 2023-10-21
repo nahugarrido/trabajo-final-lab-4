@@ -41,7 +41,7 @@
             <li>
               <a
                 class="text-gray-500 transition hover:text-gray-500/75"
-                href="/#contact"
+                href="/#contact-us"
               >
                 Contact
               </a>
@@ -89,6 +89,7 @@
         <div class="block md:hidden">
           <button
             class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
+            (click)="sidebarHandler()"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -106,6 +107,57 @@
             </svg>
           </button>
         </div>
+      </div>
+      <div
+        class="sidebar z-20 fixed top-14 right-0 left-0 py-10 bg-white h-full"
+        *ngIf="isSidebarVisible"
+      >
+        <ul class="px-6">
+          <li class="py-2 my-2">
+            <a class="text-gray-500 transition hover:text-gray-500/75" href="/">
+              Home
+            </a>
+          </li>
+          <li class="py-2 my-2">
+            <a
+              class="text-gray-500 transition hover:text-gray-500/75"
+              href="/#testimonials"
+              (click)="closeSidebar()"
+            >
+              Testimonials
+            </a>
+          </li>
+
+          <li class="py-2 my-2">
+            <a
+              class="text-gray-500 transition hover:text-gray-500/75"
+              href="/#contact-us"
+              (click)="closeSidebar()"
+            >
+              Contact
+            </a>
+          </li>
+
+          <li class="py-2 my-2">
+            <a
+              class="text-gray-500 transition hover:text-gray-500/75"
+              href="/#about-us"
+              (click)="closeSidebar()"
+            >
+              About us
+            </a>
+          </li>
+
+          <li class="py-2 my-2">
+            <a
+              class="text-gray-500 transition hover:text-gray-500/75"
+              href="/houses"
+              (click)="closeSidebar()"
+            >
+              Houses
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>

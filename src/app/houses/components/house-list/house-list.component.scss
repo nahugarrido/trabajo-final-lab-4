@@ -5,4 +5,11 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    padding: 3rem 0;
 }
+
+@media(max-width: 768px) {
+    .house-list-section {
+        padding: 0;
+    }
+}   

@@ -1,0 +1,99 @@
+{
+  "houses": [
+    {
+      "id": 1,
+      "price": 10,
+      "address": {
+        "street": "123 Wallaby Avenue",
+        "district": "Park Road",
+        "country": "USA"
+      },
+      "parking": 2,
+      "bathrooms": 1,
+      "bedrooms": 5,
+      "description": "An awesome house",
+      "image": "imageplaceholder"
+    },
+    {
+      "id": 2,
+      "price": 10,
+      "address": {
+        "street": "123 Wallaby Avenue",
+        "district": "Park Road",
+        "country": "USA"
+      },
+      "parking": 2,
+      "bathrooms": 1,
+      "bedrooms": 5,
+      "description": "An awesome house",
+      "image": "imageplaceholder"
+    },
+    {
+      "id": 3,
+      "price": 10,
+      "address": {
+        "street": "123 Wallaby Avenue",
+        "district": "Park Road",
+        "country": "USA"
+      },
+      "parking": 2,
+      "bathrooms": 1,
+      "bedrooms": 5,
+      "description": "An awesome house",
+      "image": "imageplaceholder"
+    },
+    {
+      "id": 4,
+      "price": 10,
+      "address": {
+        "street": "321 Wallaby Avenue",
+        "district": "Park Road",
+        "country": "USA"
+      },
+      "parking": 2,
+      "bathrooms": 1,
+      "bedrooms": 5,
+      "description": "An awesome house",
+      "image": "imageplaceholder"
+    },
+    {
+      "price": 20,
+      "address": {
+        "street": "777 Wallaby Avenue",
+        "district": "Park Road",
+        "country": "USA"
+      },
+      "parking": 3,
+      "bathrooms": 1,
+      "bedrooms": 5,
+      "description": "An awesome house",
+      "id": 5
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "cbianco@gmail.com",
+      "first_name": "Carlos",
+      "last_name": "Bianco",
+      "password": "password",
+      "role": "ADMIN"
+    },
+    {
+      "id": 2,
+      "email": "jlopez@gmail.com",
+      "first_name": "Jose",
+      "last_name": "Lopez",
+      "password": "password",
+      "role": "USER"
+    },
+    {
+      "id": 3,
+      "email": "kgomez@gmail.com",
+      "first_name": "Karla",
+      "last_name": "Gomez",
+      "password": "password",
+      "role": "USER"
+    }
+  ]
+}

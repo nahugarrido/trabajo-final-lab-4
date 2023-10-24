@@ -3,8 +3,7 @@ import { House } from '../models/house.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
-import { environment } from '../../../environments/environment.development';
-
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })

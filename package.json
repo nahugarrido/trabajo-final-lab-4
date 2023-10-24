@@ -8,6 +8,7 @@
     "start": "npm run angularserve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "prod-firebase": "ng build --watch --configuration production",
     "test": "ng test"
   },
   "private": true,

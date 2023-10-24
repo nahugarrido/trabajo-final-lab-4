@@ -3,9 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { UsersModule } from './users/users.module';
 import { LoginComponent } from './users/components/login/login.component';
 import { RegisterComponent } from './users/components/register/register.component';
+import { LandingComponent } from './landing/pages/landing/landing.component';
 const routes: Routes = [
   {
     path: '',
+    component: LandingComponent,
     loadChildren: () =>
       import('./landing/landing.module').then((m) => m.LandingModule),
     pathMatch: 'full',

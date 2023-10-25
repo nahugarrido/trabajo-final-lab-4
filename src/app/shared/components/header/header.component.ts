@@ -31,6 +31,7 @@ export class HeaderComponent implements OnInit {
   }
 
   private checkScreenWidth() {
+    this.windowInnerWidth = window.innerWidth;
     this.isSidebarVisible = false;
   }
 }

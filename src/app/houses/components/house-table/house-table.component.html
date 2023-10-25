@@ -1,0 +1,58 @@
+<div class="overflow-x-auto">
+  <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+    <thead class="ltr:text-left rtl:text-right text-left">
+      <tr>
+        <th class="px-4 py-2 font-medium text-gray-900">Address</th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Price
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Parking
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Bathroom
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Bedroom
+        </th>
+        <th class="px-4 py-2"></th>
+      </tr>
+    </thead>
+
+    <tbody class="divide-y divide-gray-200">
+      <tr *ngFor="let house of houses">
+        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          {{ house.address.street }} , {{ house.address.district }} ,
+          {{ house.address.country }}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          {{ house.price }}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          {{ house.parking }}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          {{ house.bathrooms }}
+        </td>
+
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          {{ house.bedrooms }}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 mx-2 text-gray-700">
+          <a
+            href="#"
+            class="inline-block rounded bg-teal-600 px-4 py-2 text-xs font-medium text-white hover:bg-teal-700 waves-effect waves-light"
+          >
+            Edit
+          </a>
+          <a
+            href="#"
+            class="inline-block rounded bg-teal-300 px-4 py-2 mx-2 text-xs font-medium text-white hover:bg-red-400 waves-effect waves-light"
+          >
+            Delete
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

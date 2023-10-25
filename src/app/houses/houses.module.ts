@@ -7,6 +7,8 @@ import { HouseListComponent } from './components/house-list/house-list.component
 import { HouseCardComponent } from './components/house-card/house-card.component';
 import { SearchComponent } from './components/search/search.component';
 import { HouseDetailComponent } from './components/house-detail/house-detail.component';
+import { HouseTableComponent } from './components/house-table/house-table.component';
+import { HouseManagementComponent } from './components/house-management/house-management.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import { HouseDetailComponent } from './components/house-detail/house-detail.com
     HouseListComponent,
     HouseCardComponent,
     SearchComponent,
+    HouseTableComponent,
+    HouseManagementComponent,
   ],
   imports: [CommonModule, HousesRoutingModule, SharedModule],
 })

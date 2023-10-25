@@ -4,12 +4,12 @@
  -->
   <div class="p-4 m-4 card-search">
     <h2 class="text-black-900 text-3xl sm:text-5xl font-bold text-center pt-2">
-      Availables Homes
+      Availables Houses
     </h2>
     <app-search></app-search>
   </div>
 </div>
 <div class="sm:mb-28">
-  <app-house-list></app-house-list>
+  <app-house-list [houses]="filteredHouses"></app-house-list>
 </div>
 <app-footer></app-footer>

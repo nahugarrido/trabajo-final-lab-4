@@ -8,19 +8,19 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class HousesService {
-  private baseURL = environment.backendURL;
+  private baseURL = environment.backendURL + '/houses';
 
   constructor(private http: HttpClient) {}
 
   createHouse(house: House) {
     return this.http
-      .post<House>(this.baseURL + '/houses', house)
+      .post<House>(this.baseURL, house)
       .pipe(retry(1), catchError(this.handleError));
   }
 
   getHouses(): Observable<House[]> {
     return this.http
-      .get<House[]>(this.baseURL + '/houses')
+      .get<House[]>(this.baseURL)
       .pipe(retry(1), catchError(this.handleError));
   }
 
@@ -32,13 +32,13 @@ export class HousesService {
 
   deleteHouseById(id: number): Observable<any> {
     return this.http
-      .delete<any>(this.baseURL + `${id}`)
+      .delete<any>(this.baseURL + `/${id}`)
       .pipe(retry(1), catchError(this.handleError));
   }
 
   updateHouseById(house: House, id: number): Observable<House> {
     return this.http
-      .put<House>(this.baseURL + `${id}`, house)
+      .put<House>(this.baseURL + `/${id}`, house)
       .pipe(retry(1), catchError(this.handleError));
   }
 

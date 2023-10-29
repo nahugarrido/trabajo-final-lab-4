@@ -16,7 +16,6 @@ import { HttpClientModule } from '@angular/common/http';
     HousesModule,
     LandingModule,
     UsersModule,
-    HousesModule,
     HttpClientModule,
   ],
   providers: [],

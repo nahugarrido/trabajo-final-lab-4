@@ -14,8 +14,16 @@ export class HouseManagementComponent implements OnInit {
   constructor(private housesService: HousesService) {}
 
   ngOnInit(): void {
+    this.updateHouses();
+  }
+
+  private updateHouses() {
     this.housesService.getHouses().subscribe((houses) => {
       this.houses = houses;
     });
+  }
+
+  public handleUpdateHouses() {
+    this.updateHouses();
   }
 }

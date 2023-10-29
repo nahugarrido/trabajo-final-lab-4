@@ -6,9 +6,9 @@ import { SharedModule } from '../shared/shared.module';
 import { HouseListComponent } from './components/house-list/house-list.component';
 import { HouseCardComponent } from './components/house-card/house-card.component';
 import { SearchComponent } from './components/search/search.component';
-import { HouseDetailComponent } from './components/house-detail/house-detail.component';
 import { HouseTableComponent } from './components/house-table/house-table.component';
 import { HouseManagementComponent } from './components/house-management/house-management.component';
+import { ModalCreateHouseComponent } from './components/modal-create-house/modal-create-house.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +18,7 @@ import { HouseManagementComponent } from './components/house-management/house-ma
     SearchComponent,
     HouseTableComponent,
     HouseManagementComponent,
+    ModalCreateHouseComponent,
   ],
   imports: [CommonModule, HousesRoutingModule, SharedModule],
 })

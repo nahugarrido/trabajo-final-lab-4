@@ -34,4 +34,9 @@ export class HeaderComponent implements OnInit {
     this.windowInnerWidth = window.innerWidth;
     this.isSidebarVisible = false;
   }
+
+  public navigateTo(url: String) {
+    this.closeSidebar();
+    this.router.navigate([url]);
+  }
 }

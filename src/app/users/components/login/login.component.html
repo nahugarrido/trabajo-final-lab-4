@@ -4,8 +4,8 @@
   <div class="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
     <div class="mx-auto max-w-lg text-center">
       <a
-        class="inline-flex h-20 w-20 items-center justify-center rounded-full bg-white text-teal-600 sm:h-20 sm:w-20"
-        href="/"
+        class="inline-flex h-20 w-20 items-center justify-center rounded-full bg-white text-teal-600 sm:h-20 sm:w-20 hover:cursor-pointer"
+        (click)="navigateTo('/')"
       >
         <span class="sr-only">Home</span>
         <img
@@ -22,7 +22,11 @@
       </p>
     </div>
 
-    <form action="" class="mx-auto mb-0 mt-8 max-w-md space-y-4">
+    <form
+      [formGroup]="loginForm"
+      (ngSubmit)="onSubmit()"
+      class="mx-auto mb-0 mt-8 max-w-md space-y-4"
+    >
       <div>
         <label for="email" class="sr-only">Email</label>
 
@@ -30,6 +34,7 @@
           <input
             type="email"
             class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+            formControlName="email"
             placeholder="Enter email"
           />
 
@@ -59,6 +64,7 @@
           <input
             type="password"
             class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+            formControlName="password"
             placeholder="Enter password"
           />
 
@@ -90,7 +96,11 @@
       <div class="flex items-center justify-between">
         <p class="text-sm text-gray-500">
           No account?
-          <a class="underline" href="/register">Sign up</a>
+          <a
+            class="underline hover:cursor-pointer"
+            (click)="navigateTo('/register')"
+            >Sign up</a
+          >
         </p>
 
         <button

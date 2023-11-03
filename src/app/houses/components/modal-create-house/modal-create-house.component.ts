@@ -55,7 +55,7 @@ export class ModalCreateHouseComponent implements OnInit {
     });
   }
 
-  private clearform() {
+  private clearForm() {
     this.createHouseForm.reset({
       price: null,
       address: this.formBuilder.group({
@@ -78,7 +78,7 @@ export class ModalCreateHouseComponent implements OnInit {
         .subscribe((data) => {
           this.updateHouses.emit();
           this.closeModal();
-          this.clearform();
+          this.clearForm();
         });
     }
   }
@@ -91,7 +91,7 @@ export class ModalCreateHouseComponent implements OnInit {
         .subscribe((data) => {
           this.updateHouses.emit();
           this.closeModal();
-          this.clearform();
+          this.clearForm();
         });
     }
   }
@@ -123,6 +123,6 @@ export class ModalCreateHouseComponent implements OnInit {
   public closeModal() {
     this.showCreateHouseModal = false;
     this.isEditing = false;
-    this.clearform();
+    this.clearForm();
   }
 }

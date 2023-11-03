@@ -5,22 +5,31 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, retry, throwError } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsersService {
-  private baseURL = environment.backendURL;
+  private baseURL = environment.backendURL + '/users';
 
   constructor(private http: HttpClient) {}
 
-  createuser(user: User) {
+  getUserByEmailAndPassword(
+    email: string,
+    password: string
+  ): Observable<User[]> {
+    return this.http.get<User[]>(
+      this.baseURL + `?email=${email}&password=${password}`
+    );
+  }
+
+  createuser(user: User): Observable<User> {
     return this.http
-      .post<User>(this.baseURL + '/users', user)
+      .post<User>(this.baseURL + '/', user)
       .pipe(retry(1), catchError(this.handleError));
   }
 
   getusers(): Observable<User[]> {
     return this.http
-      .get<User[]>(this.baseURL + '/users')
+      .get<User[]>(this.baseURL)
       .pipe(retry(1), catchError(this.handleError));
   }
 

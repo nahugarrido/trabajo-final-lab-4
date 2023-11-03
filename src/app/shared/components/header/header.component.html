@@ -2,7 +2,7 @@
   <div class="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 items-center justify-between">
       <div class="md:flex md:items-center md:gap-12 w-1/5">
-        <a class="block text-teal-600" href="/">
+        <a class="block text-teal-600 hover:cursor-pointer" href="/">
           <span class="sr-only">Home</span>
           <img
             class="h-12 w-12"
@@ -17,7 +17,7 @@
           <ul class="flex items-center gap-6 text-sm">
             <li>
               <a
-                class="text-gray-500 transition hover:text-gray-500/75"
+                class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
                 (click)="navigateTo('/')"
               >
                 Home
@@ -25,7 +25,7 @@
             </li>
             <li>
               <a
-                class="text-gray-500 transition hover:text-gray-500/75"
+                class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
                 href="/#testimonials"
               >
                 Testimonials
@@ -34,7 +34,7 @@
 
             <li>
               <a
-                class="text-gray-500 transition hover:text-gray-500/75"
+                class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
                 href="/#contact-us"
               >
                 Contact
@@ -42,7 +42,7 @@
             </li>
             <li>
               <a
-                class="text-gray-500 transition hover:text-gray-500/75"
+                class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
                 href="/#about-us"
               >
                 About us
@@ -51,7 +51,7 @@
 
             <li>
               <a
-                class="text-gray-500 transition hover:text-gray-500/75"
+                class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
                 (click)="navigateTo('/houses')"
               >
                 Houses
@@ -60,7 +60,7 @@
 
             <li>
               <a
-                class="text-gray-500 transition hover:text-gray-500/75"
+                class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
                 (click)="navigateTo('/houses/management')"
               >
                 Management
@@ -81,7 +81,7 @@
 
           <div class="hidden sm:flex">
             <a
-              class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
+              class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 hover:cursor-pointer"
               href="/register"
             >
               Register
@@ -117,13 +117,16 @@
       >
         <ul class="px-6">
           <li class="py-2 my-2">
-            <a class="text-gray-500 transition hover:text-gray-500/75" href="/">
+            <a
+              class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
+              href="/"
+            >
               Home
             </a>
           </li>
           <li class="py-2 my-2">
             <a
-              class="text-gray-500 transition hover:text-gray-500/75"
+              class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
               href="/#testimonials"
               (click)="closeSidebar()"
             >
@@ -133,7 +136,7 @@
 
           <li class="py-2 my-2">
             <a
-              class="text-gray-500 transition hover:text-gray-500/75"
+              class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
               href="/#contact-us"
               (click)="closeSidebar()"
             >
@@ -143,7 +146,7 @@
 
           <li class="py-2 my-2">
             <a
-              class="text-gray-500 transition hover:text-gray-500/75"
+              class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
               href="/#about-us"
               (click)="closeSidebar()"
             >
@@ -153,7 +156,7 @@
 
           <li class="py-2 my-2">
             <a
-              class="text-gray-500 transition hover:text-gray-500/75"
+              class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
               href="/houses"
               (click)="closeSidebar()"
             >
@@ -163,7 +166,7 @@
 
           <li class="py-2 my-2">
             <a
-              class="text-gray-500 transition hover:text-gray-500/75"
+              class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
               href="/houses/management"
               (click)="closeSidebar()"
             >

@@ -1,18 +1,22 @@
-import { Component, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit {
   @Output() search: string = '';
+  @Output() filterChange: EventEmitter<{ priceFrom: number; priceTo: number }> =
+    new EventEmitter<any>();
 
-  searchControl = new FormControl('');
+  priceFrom: number = 0;
+  priceTo: number = 0;
 
   constructor() {}
 
-  public onSearch(event: any): void {
-    this.search = event.target.value;
+  ngOnInit(): void {}
+  
+  onFilterChange(){
+    this.filterChange.emit({priceFrom:this.priceFrom,priceTo:this.priceTo})
   }
 }

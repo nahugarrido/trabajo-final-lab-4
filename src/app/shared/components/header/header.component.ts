@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/users/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  isLoged: boolean = false;
   isSidebarVisible: boolean = false;
   windowInnerWidth: number = window.innerWidth;
 
@@ -15,10 +17,13 @@ export class HeaderComponent implements OnInit {
     this.checkScreenWidth();
   }
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit() {
     this.checkScreenWidth();
+    sessionStorage.getItem('active-user')
+      ? (this.isLoged = true)
+      : (this.isLoged = false);
   }
 
   public sidebarHandler(): void {
@@ -35,8 +40,18 @@ export class HeaderComponent implements OnInit {
     this.isSidebarVisible = false;
   }
 
-  public navigateTo(url: String) {
+  public logout() {
+    this.authService.cleanUserData();
+    this.isLoged = false;
+    this.router.navigate(['/']);
+  }
+
+  public navigateTo(url: string, section?: string) {
     this.closeSidebar();
-    this.router.navigate([url]);
+    if (section) {
+      this.router.navigate([url], { fragment: section });
+    } else {
+      this.router.navigate([url]);
+    }
   }
 }

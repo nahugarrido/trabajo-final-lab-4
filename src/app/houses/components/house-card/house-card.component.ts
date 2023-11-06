@@ -10,7 +10,5 @@ export class HouseCardComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    console.log('HOUSE EN CARD', this.house);
-  }
+  ngOnInit(): void {}
 }

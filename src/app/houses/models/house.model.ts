@@ -7,6 +7,7 @@ export interface House {
   bedrooms: number;
   description: string;
   image: string;
+  user_id: number;
 }
 
 interface Address {

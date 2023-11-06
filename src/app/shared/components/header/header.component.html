@@ -18,7 +18,7 @@
             <li>
               <a
                 class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
-                (click)="navigateTo('/')"
+                (click)="navigateTo('', 'home')"
               >
                 Home
               </a>
@@ -26,7 +26,7 @@
             <li>
               <a
                 class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
-                href="/#testimonials"
+                (click)="navigateTo('', 'testimonials')"
               >
                 Testimonials
               </a>
@@ -35,7 +35,7 @@
             <li>
               <a
                 class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
-                href="/#contact-us"
+                (click)="navigateTo('', 'contact-us')"
               >
                 Contact
               </a>
@@ -43,7 +43,7 @@
             <li>
               <a
                 class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
-                href="/#about-us"
+                (click)="navigateTo('', 'about-us')"
               >
                 About us
               </a>
@@ -58,7 +58,7 @@
               </a>
             </li>
 
-            <li>
+            <li *ngIf="isLoged">
               <a
                 class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
                 (click)="navigateTo('/houses/management')"
@@ -70,11 +70,11 @@
         </nav>
       </div>
 
-      <div class="flex items-center justify-end gap-4 w-1/5">
-        <div class="sm:flex sm:gap-4">
+      <div class="flex items-center justify-end gap-4 w-2/5 sm:w-1/5">
+        <div class="sm:flex sm:gap-4" ng *ngIf="!isLoged">
           <a
             class="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
-            href="/login"
+            (click)="navigateTo('login')"
           >
             Login
           </a>
@@ -82,13 +82,21 @@
           <div class="hidden sm:flex">
             <a
               class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 hover:cursor-pointer"
-              href="/register"
+              (click)="navigateTo('register')"
             >
               Register
             </a>
           </div>
         </div>
 
+        <div class="flex gap-4" *ngIf="isLoged">
+          <a
+            class="rounded-md bg-teal-600 px-3 sm:px-2 py-2.5 text-sm font-medium text-white shadow"
+            (click)="logout()"
+          >
+            Log Out
+          </a>
+        </div>
         <div class="block md:hidden">
           <button
             class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
@@ -119,7 +127,7 @@
           <li class="py-2 my-2">
             <a
               class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
-              href="/"
+              (click)="navigateTo('', 'home')"
             >
               Home
             </a>
@@ -127,8 +135,7 @@
           <li class="py-2 my-2">
             <a
               class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
-              href="/#testimonials"
-              (click)="closeSidebar()"
+              (click)="navigateTo('', 'testimonials')"
             >
               Testimonials
             </a>
@@ -137,8 +144,7 @@
           <li class="py-2 my-2">
             <a
               class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
-              href="/#contact-us"
-              (click)="closeSidebar()"
+              (click)="navigateTo('', 'contact-us')"
             >
               Contact
             </a>
@@ -147,8 +153,7 @@
           <li class="py-2 my-2">
             <a
               class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
-              href="/#about-us"
-              (click)="closeSidebar()"
+              (click)="navigateTo('', 'about-us')"
             >
               About us
             </a>
@@ -157,18 +162,16 @@
           <li class="py-2 my-2">
             <a
               class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
-              href="/houses"
-              (click)="closeSidebar()"
+              (click)="navigateTo('houses')"
             >
               Houses
             </a>
           </li>
 
-          <li class="py-2 my-2">
+          <li class="py-2 my-2" *ngIf="isLoged">
             <a
               class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
-              href="/houses/management"
-              (click)="closeSidebar()"
+              (click)="navigateTo('houses/management')"
             >
               Management
             </a>

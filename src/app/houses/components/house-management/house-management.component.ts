@@ -18,7 +18,7 @@ export class HouseManagementComponent implements OnInit {
   }
 
   private updateHouses() {
-    this.housesService.getHouses().subscribe((houses) => {
+    this.housesService.getHousesByActiveUser().subscribe((houses) => {
       this.houses = houses;
     });
   }

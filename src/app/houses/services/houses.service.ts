@@ -13,9 +13,15 @@ export class HousesService {
   constructor(private http: HttpClient) {}
 
   createHouse(house: House) {
-    return this.http
-      .post<House>(this.baseURL, house)
-      .pipe(retry(1), catchError(this.handleError));
+    let userId = sessionStorage.getItem('active-user');
+    if (userId) {
+      house.user_id = parseInt(userId);
+      return this.http
+        .post<House>(this.baseURL, house)
+        .pipe(retry(1), catchError(this.handleError));
+    } else {
+      return new Observable<House>();
+    }
   }
 
   getHouses(): Observable<House[]> {

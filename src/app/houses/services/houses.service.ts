@@ -24,6 +24,17 @@ export class HousesService {
       .pipe(retry(1), catchError(this.handleError));
   }
 
+  getHousesByActiveUser(): Observable<House[]> {
+    let userId = sessionStorage.getItem('active-user');
+    if (userId) {
+      return this.http
+        .get<House[]>(this.baseURL + `?user_id=${userId}`)
+        .pipe(retry(1), catchError(this.handleError));
+    } else {
+      return new Observable<House[]>();
+    }
+  }
+
   findHouseById(id: number): Observable<House> {
     return this.http
       .get<House>(this.baseURL + `/${id}`)

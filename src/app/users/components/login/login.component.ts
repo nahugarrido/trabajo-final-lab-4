@@ -10,6 +10,7 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -26,6 +27,13 @@ export class LoginComponent implements OnInit {
       password: new FormControl(''),
     });
   }
+
+  /*   private initFormGroup() {
+    this.loginForm = new FormGroup({
+      email: new FormControl(''),
+      password: new FormControl(''),
+    });
+  } */
 
   public onSubmit() {
     this.authService

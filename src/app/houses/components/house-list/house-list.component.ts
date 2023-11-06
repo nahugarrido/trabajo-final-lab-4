@@ -20,6 +20,5 @@ export class HouseListComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     this.houses = changes['houses'].currentValue;
-    console.log('HOUSES EN LIST', this.houses);
   }
 }

@@ -2,7 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './pages/landing/landing.component';
 
-const routes: Routes = [{ path: '', component: LandingComponent }];
+const routes: Routes = [
+  { path: '', component: LandingComponent, pathMatch: 'full' },
+  { path: ':section', component: LandingComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

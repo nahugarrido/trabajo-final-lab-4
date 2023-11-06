@@ -35,8 +35,15 @@ export class HeaderComponent implements OnInit {
     this.isSidebarVisible = false;
   }
 
-  public navigateTo(url: String) {
+  public navigateTo(url: string, section?: string) {
+    console.log('TEST NAVEGACION:');
+    console.log('url: ***' + url + '***');
+    console.log('section:' + section);
     this.closeSidebar();
-    this.router.navigate([url]);
+    if (section) {
+      this.router.navigate([url], { fragment: section });
+    } else {
+      this.router.navigate([url]);
+    }
   }
 }

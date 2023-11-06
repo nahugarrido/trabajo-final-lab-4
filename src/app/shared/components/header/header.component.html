@@ -18,7 +18,7 @@
             <li>
               <a
                 class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
-                (click)="navigateTo('/')"
+                (click)="navigateTo('')"
               >
                 Home
               </a>
@@ -26,7 +26,7 @@
             <li>
               <a
                 class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
-                href="/#testimonials"
+                (click)="navigateTo('', 'testimonials')"
               >
                 Testimonials
               </a>
@@ -35,7 +35,7 @@
             <li>
               <a
                 class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
-                href="/#contact-us"
+                (click)="navigateTo('', 'contact-us')"
               >
                 Contact
               </a>
@@ -43,7 +43,7 @@
             <li>
               <a
                 class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
-                href="/#about-us"
+                (click)="navigateTo('', 'about-us')"
               >
                 About us
               </a>
@@ -74,7 +74,7 @@
         <div class="sm:flex sm:gap-4">
           <a
             class="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
-            href="/login"
+            (click)="navigateTo('login')"
           >
             Login
           </a>
@@ -82,7 +82,7 @@
           <div class="hidden sm:flex">
             <a
               class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 hover:cursor-pointer"
-              href="/register"
+              (click)="navigateTo('register')"
             >
               Register
             </a>
@@ -119,7 +119,7 @@
           <li class="py-2 my-2">
             <a
               class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
-              href="/"
+              (click)="navigateTo('')"
             >
               Home
             </a>
@@ -127,8 +127,7 @@
           <li class="py-2 my-2">
             <a
               class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
-              href="/#testimonials"
-              (click)="closeSidebar()"
+              (click)="navigateTo('', 'testimonials')"
             >
               Testimonials
             </a>
@@ -137,8 +136,7 @@
           <li class="py-2 my-2">
             <a
               class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
-              href="/#contact-us"
-              (click)="closeSidebar()"
+              (click)="navigateTo('', 'contact-us')"
             >
               Contact
             </a>
@@ -147,8 +145,7 @@
           <li class="py-2 my-2">
             <a
               class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
-              href="/#about-us"
-              (click)="closeSidebar()"
+              (click)="navigateTo('', 'about-us')"
             >
               About us
             </a>
@@ -157,8 +154,7 @@
           <li class="py-2 my-2">
             <a
               class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
-              href="/houses"
-              (click)="closeSidebar()"
+              (click)="navigateTo('houses')"
             >
               Houses
             </a>
@@ -167,8 +163,7 @@
           <li class="py-2 my-2">
             <a
               class="text-gray-500 transition hover:text-gray-500/75 hover:cursor-pointer"
-              href="/houses/management"
-              (click)="closeSidebar()"
+              (click)="navigateTo('houses/management')"
             >
               Management
             </a>

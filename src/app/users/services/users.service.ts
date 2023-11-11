@@ -8,9 +8,16 @@ import { Observable, catchError, retry, throwError } from 'rxjs';
   providedIn: 'root',
 })
 export class UsersService {
+  
   private baseURL = environment.backendURL + '/users';
 
   constructor(private http: HttpClient) {}
+
+  existUserByEmail(email: any): boolean {
+    return this.getusers().subscribe(data=>{
+      return data.find(u => u.email == email);
+    })? true : false;
+  }
 
   getUserByEmailAndPassword(
     email: string,

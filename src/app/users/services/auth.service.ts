@@ -13,17 +13,20 @@ export class AuthService {
   public async login(email: string, password: string): Promise<boolean> {
     let users: User[] = [];
 
-    try {
       let apiResponse = this.userService.getUserByEmailAndPassword(
         email,
         password
-      );
-      users = await lastValueFrom(apiResponse);
-      this.setActiveUser(users[0].id);
-    } catch (error) {
-      console.log(error);
-    }
-
+      ).subscribe({
+        next: (data)=>{ 
+          if(!data || !Array.isArray(data) || data.length == 0) return;
+          
+          users = data;
+          this.setActiveUser(users[0].id);
+        },
+        error: (error)=>{
+          console.log(error)
+        }
+      })
     return users.length == 1;
   }
 

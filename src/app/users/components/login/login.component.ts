@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -23,8 +23,8 @@ export class LoginComponent implements OnInit {
 
   private initFormGroup() {
     this.loginForm = this.formBuilder.group({
-      email: new FormControl(''),
-      password: new FormControl(''),
+      email: new FormControl('',[Validators.required,Validators.email]),
+      password: new FormControl('',[Validators.required]),
     });
   }
 
@@ -45,6 +45,13 @@ export class LoginComponent implements OnInit {
           console.log('Error en el login');
         }
       });
+  }
+
+  get email(){
+    return this.loginForm.get('email');
+  }
+  get password(){
+    return this.loginForm.get('password');
   }
 
   public navigateTo(url: string) {

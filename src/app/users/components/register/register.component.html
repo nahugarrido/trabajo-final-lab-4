@@ -66,6 +66,14 @@
               class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
             />
           </div>
+          <!-- First name input validation -->
+          <div
+          *ngIf="first_name!.invalid && (first_name!.dirty || first_name!.touched)"
+          class="alert alert-danger"
+          >
+            <div *ngIf="first_name!.errors?.['required']">First name is required.</div>
+          </div>
+          <!-- End of first_name input validations-->
 
           <div class="col-span-6 sm:col-span-3">
             <label
@@ -84,6 +92,15 @@
             />
           </div>
 
+          <!-- Last name input validation -->
+          <div
+          *ngIf="last_name!.invalid && (last_name!.dirty || last_name!.touched)"
+          class="alert alert-danger"
+          >
+            <div *ngIf="last_name!.errors?.['required']">Last name is required.</div>
+          </div>
+          <!-- End of Last name input validations-->
+
           <div class="col-span-6">
             <label for="email" class="block text-sm font-medium text-gray-700">
               Email
@@ -97,6 +114,16 @@
               class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
             />
           </div>
+
+          <!-- Email input validation -->
+          <div
+          *ngIf="email!.invalid && (email!.dirty || email!.touched)"
+          class="alert alert-danger"
+          >
+            <div *ngIf="email!.errors?.['required']">Last name is required.</div>
+            <div *ngIf="email!.errors?.['email']">Invalid email format</div>
+          </div>
+          <!-- End of Email input validations-->
 
           <div class="col-span-6 sm:col-span-3">
             <label
@@ -115,6 +142,15 @@
             />
           </div>
 
+          <!-- Password input validation -->
+          <div
+          *ngIf="password!.invalid && (password!.dirty || password!.touched)"
+          class="alert alert-danger"
+          >
+            <div *ngIf="password!.errors?.['required']">Password is required.</div>
+          </div>
+          <!-- End of password input validations-->
+
           <div class="col-span-6 sm:col-span-3">
             <label
               for="PasswordConfirmation"
@@ -131,6 +167,19 @@
             />
           </div>
 
+          <!-- Password confirmation input validation -->
+          <div
+          *ngIf="password_confirmation!.invalid && (password_confirmation!.dirty || password_confirmation!.touched)"
+          class="alert alert-danger"
+          >
+            <div *ngIf="password_confirmation!.errors?.['required']">Password confirmation is required.</div>
+          </div>
+
+          <div *ngIf="password_confirmation!.errors?.['passwordMatchsConfirmation'] && (password_confirmation!.touched || password_confirmation!.dirty)" class="cross-validation-error-message alert alert-danger">
+            Password and password confirmation must be the same
+        </div>
+          <!-- End of password confirmation input validations-->
+          
           <div class="col-span-6">
             <label for="MarketingAccept" class="flex gap-4">
               <input
@@ -160,6 +209,7 @@
             <button
               type="submit"
               class="inline-block shrink-0 rounded-md border border-teal-600 bg-teal-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-teal-600 focus:outline-none active:text-teal-500"
+              [disabled]="!registerForm.valid"
             >
               Create an account
             </button>

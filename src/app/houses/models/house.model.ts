@@ -6,6 +6,7 @@ export interface House {
   bathrooms: number;
   bedrooms: number;
   description: string;
+  contact: string;
   image: string;
   user_id: number;
 }

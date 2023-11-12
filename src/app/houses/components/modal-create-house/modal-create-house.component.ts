@@ -26,6 +26,7 @@ export class ModalCreateHouseComponent implements OnInit {
   showCreateHouseModal: boolean = false;
   isEditing: boolean = false;
   idEditing!: number;
+  idHouseOwner!: number;
   @ViewChild('modalCreateHouse') modalCreateHouse!: TemplateRef<FormGroup>;
 
   @Output() updateHouses: EventEmitter<any> = new EventEmitter();
@@ -51,6 +52,7 @@ export class ModalCreateHouseComponent implements OnInit {
       bathrooms: [null, [Validators.required]],
       bedrooms: [null, [Validators.required]],
       description: [null, [Validators.required]],
+      contact: [null, [Validators.required]],
       image: [null, [Validators.required]],
     });
   }
@@ -67,6 +69,7 @@ export class ModalCreateHouseComponent implements OnInit {
       bathrooms: null,
       bedrooms: null,
       description: null,
+      contact: null,
       image: null,
     });
   }
@@ -84,10 +87,26 @@ export class ModalCreateHouseComponent implements OnInit {
   }
 
   public onSubmitEdit() {
-    console.log('this.createHouseForm', this.createHouseForm);
+    let house: House = {
+      id: this.idEditing,
+      price: this.createHouseForm.value.price,
+      address: {
+        street: this.createHouseForm.value.address.street,
+        district: this.createHouseForm.value.address.district,
+        country: this.createHouseForm.value.address.country,
+      },
+      parking: this.createHouseForm.value.parking,
+      bathrooms: this.createHouseForm.value.bathrooms,
+      bedrooms: this.createHouseForm.value.bedrooms,
+      description: this.createHouseForm.value.description,
+      contact: this.createHouseForm.value.contact,
+      user_id: this.idHouseOwner,
+      image: this.createHouseForm.value.image,
+    };
+
     if (this.createHouseForm.valid) {
       this.houseService
-        .updateHouseById(this.createHouseForm.value, this.idEditing)
+        .updateHouseById(house, this.idEditing)
         .subscribe((data) => {
           this.updateHouses.emit();
           this.closeModal();
@@ -101,7 +120,7 @@ export class ModalCreateHouseComponent implements OnInit {
   }
 
   public showModalEdit(house: House) {
-    console.log('house', house);
+    this.idHouseOwner = house.user_id;
     this.idEditing = house.id;
     this.isEditing = true;
     this.showCreateHouseModal = true;
@@ -116,6 +135,7 @@ export class ModalCreateHouseComponent implements OnInit {
       bathrooms: house.bathrooms,
       bedrooms: house.bedrooms,
       description: house.description,
+      contact: house.contact,
       image: house.image,
     });
   }

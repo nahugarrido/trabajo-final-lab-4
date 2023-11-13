@@ -39,6 +39,18 @@ export class AuthService {
     return user.id != 0;
   }
 
+  public async validateEmail(email: string): Promise<boolean> {
+    let users: User[] = [];
+    try {
+      let apiResponse = this.userService.getUserByEmail(email);
+      users = await lastValueFrom(apiResponse);
+      this.setActiveUser(users[0].id);
+    } catch (error) {
+      console.log(error);
+    }
+    return users.length == 1;
+  }
+
   private setActiveUser(id: number) {
     sessionStorage.setItem('active-user', id.toString());
   }

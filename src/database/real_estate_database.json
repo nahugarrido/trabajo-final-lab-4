@@ -161,6 +161,15 @@
       "password": "asd123",
       "role": "USER",
       "id": 6
+    },
+    {
+      "email": "pablo@gmail.com",
+      "first_name": "pablito",
+      "last_name": "clavo un clavito",
+      "password": "asd123",
+      "password_confirmation": "asd123",
+      "role": "USER",
+      "id": 7
     }
   ]
 }

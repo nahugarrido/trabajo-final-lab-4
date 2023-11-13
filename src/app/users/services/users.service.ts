@@ -12,6 +12,10 @@ export class UsersService {
 
   constructor(private http: HttpClient) {}
 
+  getUserByEmail(email: string): Observable<User[]> {
+    return this.http.get<User[]>(this.baseURL + `?email=${email}`);
+  }
+
   getUserByEmailAndPassword(
     email: string,
     password: string

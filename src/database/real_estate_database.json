@@ -40,7 +40,7 @@
         "district": "Parque Patricios",
         "country": "Argentina"
       },
-      "parking": 6,
+      "parking": 7,
       "bathrooms": "12",
       "bedrooms": 12,
       "description": "Propiedad historica en el casco de parque patricios, precio negociable.",
@@ -139,10 +139,10 @@
       "role": "USER"
     },
     {
-      "email": "jorge@gmail.com",
-      "password": "jorge123",
-      "first_name": "Jorge",
-      "last_name": "Jorgelin",
+      "email": "admin@admin.com",
+      "password": "admin",
+      "first_name": "admin",
+      "last_name": "terminator",
       "role": "USER",
       "id": 4
     },
@@ -170,6 +170,15 @@
       "password_confirmation": "asd123",
       "role": "USER",
       "id": 7
+    },
+    {
+      "email": "asd@asd.com",
+      "first_name": "asd",
+      "last_name": "asd",
+      "password": "asd",
+      "password_confirmation": "asd",
+      "role": "USER",
+      "id": 8
     }
   ]
 }

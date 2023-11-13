@@ -124,6 +124,9 @@
           Password is required.
         </div>
       </div>
+      <div *ngIf="errorLogin" class="mt-1 w-full text-sm text-red-500">
+        User or password incorrect.
+      </div>
       <!-- End of password input validations-->
 
       <div class="flex items-center justify-between">

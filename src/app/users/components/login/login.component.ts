@@ -14,6 +14,7 @@ import {
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+  errorLogin: boolean = false;
   loginForm!: FormGroup;
 
   constructor(
@@ -37,9 +38,11 @@ export class LoginComponent implements OnInit {
     this.authService
       .login(this.loginForm.value.email, this.loginForm.value.password)
       .then((result) => {
+        this.errorLogin = false;
         if (result) {
           this.router.navigate(['/houses']);
         } else {
+          this.errorLogin = true;
           console.log('Error en el login');
         }
       });

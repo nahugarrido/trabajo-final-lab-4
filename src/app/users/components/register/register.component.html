@@ -32,19 +32,16 @@
               alt="logo"
             />
           </a>
-
           <h1
             class="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl"
           >
             Register an account
           </h1>
-
           <p class="mt-4 leading-relaxed text-gray-500">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi
             nam dolorum aliquam, quibusdam aperiam voluptatum.
           </p>
         </div>
-
         <form
           [formGroup]="registerForm"
           (ngSubmit)="onSubmit()"
@@ -65,16 +62,23 @@
               formControlName="first_name"
               class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
             />
-          </div>
-          <!-- First name input validation -->
-          <div
-          *ngIf="first_name!.invalid && (first_name!.dirty || first_name!.touched)"
-          class="alert alert-danger"
-          >
-            <div *ngIf="first_name!.errors?.['required']">First name is required.</div>
+            <!-- First name input validation -->
+            <div
+              *ngIf="
+                first_name!.invalid &&
+                (first_name!.dirty || first_name!.touched)
+              "
+              class="alert alert-danger"
+            >
+              <div
+                *ngIf="first_name!.errors?.['required']"
+                class="mt-1 w-full text-sm text-red-500"
+              >
+                First name is required.
+              </div>
+            </div>
           </div>
           <!-- End of first_name input validations-->
-
           <div class="col-span-6 sm:col-span-3">
             <label
               for="last_name"
@@ -90,17 +94,22 @@
               formControlName="last_name"
               class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
             />
-          </div>
-
-          <!-- Last name input validation -->
-          <div
-          *ngIf="last_name!.invalid && (last_name!.dirty || last_name!.touched)"
-          class="alert alert-danger"
-          >
-            <div *ngIf="last_name!.errors?.['required']">Last name is required.</div>
+            <!-- Last name input validation -->
+            <div
+              *ngIf="
+                last_name!.invalid && (last_name!.dirty || last_name!.touched)
+              "
+              class="alert alert-danger"
+            >
+              <div
+                *ngIf="last_name!.errors?.['required']"
+                class="mt-1 w-full text-sm text-red-500"
+              >
+                Last name is required.
+              </div>
+            </div>
           </div>
           <!-- End of Last name input validations-->
-
           <div class="col-span-6">
             <label for="email" class="block text-sm font-medium text-gray-700">
               Email
@@ -113,18 +122,33 @@
               formControlName="email"
               class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
             />
-          </div>
 
-          <!-- Email input validation -->
-          <div
-          *ngIf="email!.invalid && (email!.dirty || email!.touched)"
-          class="alert alert-danger"
-          >
-            <div *ngIf="email!.errors?.['required']">Last name is required.</div>
-            <div *ngIf="email!.errors?.['email']">Invalid email format</div>
+            <!-- Email input validation -->
+            <div
+              *ngIf="email!.invalid && (email!.dirty || email!.touched)"
+              class="alert alert-danger w-full"
+            >
+              <div
+                *ngIf="email!.errors?.['required']"
+                class="mt-1 w-full text-sm text-red-500"
+              >
+                Email is required.
+              </div>
+              <div
+                *ngIf="email!.errors?.['email']"
+                class="mt-1 w-full text-sm text-red-500"
+              >
+                Invalid email format
+              </div>
+              <div
+                *ngIf="emailAlreadyExist"
+                class="mt-1 w-full text-sm text-red-500"
+              >
+                Email already exists
+              </div>
+            </div>
+            <!-- End of Email input validations-->
           </div>
-          <!-- End of Email input validations-->
-
           <div class="col-span-6 sm:col-span-3">
             <label
               for="password"
@@ -140,20 +164,27 @@
               formControlName="password"
               class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
             />
-          </div>
 
-          <!-- Password input validation -->
-          <div
-          *ngIf="password!.invalid && (password!.dirty || password!.touched)"
-          class="alert alert-danger"
-          >
-            <div *ngIf="password!.errors?.['required']">Password is required.</div>
+            <!-- Password input validation -->
+            <div
+              *ngIf="
+                password!.invalid && (password!.dirty || password!.touched)
+              "
+              class="alert alert-danger"
+            >
+              <div
+                *ngIf="password!.errors?.['required']"
+                class="mt-1 w-full text-sm text-red-500"
+              >
+                Password is required.
+              </div>
+            </div>
+            <!-- End of password input validations-->
           </div>
-          <!-- End of password input validations-->
 
           <div class="col-span-6 sm:col-span-3">
             <label
-              for="PasswordConfirmation"
+              for="password_confirmation"
               class="block text-sm font-medium text-gray-700"
             >
               Password Confirmation
@@ -161,25 +192,37 @@
 
             <input
               type="password"
-              id="PasswordConfirmation"
+              id="password_confirmation"
               name="password_confirmation"
+              formControlName="password_confirmation"
               class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
             />
+
+            <!-- Password confirmation input validation -->
+            <div
+              *ngIf="
+                password_confirmation!.invalid &&
+                (password_confirmation!.dirty || password_confirmation!.touched)
+              "
+              class="alert alert-danger w-full"
+            >
+              <div
+                *ngIf="password_confirmation!.errors?.['required']"
+                class="mt-1 w-full text-sm text-red-500"
+              >
+                Password confirmation is required.
+              </div>
+            </div>
+
+            <div
+              *ngIf="confirmPasswordFail"
+              class="mt-1 w-full text-sm text-red-500"
+            >
+              Password and password confirmation must be the same
+            </div>
+            <!-- End of password confirmation input validations-->
           </div>
 
-          <!-- Password confirmation input validation -->
-          <div
-          *ngIf="password_confirmation!.invalid && (password_confirmation!.dirty || password_confirmation!.touched)"
-          class="alert alert-danger"
-          >
-            <div *ngIf="password_confirmation!.errors?.['required']">Password confirmation is required.</div>
-          </div>
-
-          <div *ngIf="password_confirmation!.errors?.['passwordMatchsConfirmation'] && (password_confirmation!.touched || password_confirmation!.dirty)" class="cross-validation-error-message alert alert-danger">
-            Password and password confirmation must be the same
-        </div>
-          <!-- End of password confirmation input validations-->
-          
           <div class="col-span-6">
             <label for="MarketingAccept" class="flex gap-4">
               <input
@@ -209,8 +252,8 @@
             <button
               type="submit"
               class="inline-block shrink-0 rounded-md border border-teal-600 bg-teal-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-teal-600 focus:outline-none active:text-teal-500"
-              [disabled]="!registerForm.valid"
             >
+              <!--  [disabled]="!registerForm.valid" -->
               Create an account
             </button>
 

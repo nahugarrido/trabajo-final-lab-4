@@ -145,6 +145,24 @@
       "password": "asd123",
       "role": "USER",
       "id": 6
+    },
+    {
+      "email": "",
+      "first_name": "",
+      "last_name": "",
+      "password": "aa",
+      "password_confirmation": "aa",
+      "role": "USER",
+      "id": 7
+    },
+    {
+      "email": "jamoncito@gmail.com",
+      "first_name": "Jamon",
+      "last_name": "Crudo",
+      "password": "asd123",
+      "password_confirmation": "asd123",
+      "role": "USER",
+      "id": 8
     }
   ]
 }

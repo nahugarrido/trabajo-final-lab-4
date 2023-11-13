@@ -8,8 +8,6 @@ import {
   Validators,
 } from '@angular/forms';
 
-import { UsersService } from '../../services/users.service';
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -17,9 +15,10 @@ import { UsersService } from '../../services/users.service';
 })
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
+  confirmPasswordFail: boolean = false;
+  emailAlreadyExist: boolean = false;
   constructor(
     private authService: AuthService,
-    private userService: UsersService,
     private router: Router,
     private formBuilder: FormBuilder
   ) {}
@@ -34,6 +33,7 @@ export class RegisterComponent implements OnInit {
       first_name: new FormControl('', [Validators.required]),
       last_name: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
+      password_confirmation: new FormControl('', [Validators.required]),
       role: new FormControl('USER'),
     });
 
@@ -41,41 +41,51 @@ export class RegisterComponent implements OnInit {
       email: ['', { validators: [Validators.email, Validators.required] }],
       first_name: ['', { validators: [Validators.required] }],
       last_name: ['', { validators: [Validators.required] }],
-      password:['', { validators: [Validators.required] }],
-      password_confirmation: ['', {validators:[
-        Validators.required
-      ]}],
-      role: new FormControl('USER')
+      password: ['', { validators: [Validators.required] }],
+      password_confirmation: ['', { validators: [Validators.required] }],
+      role: new FormControl('USER'),
     });
   }
 
   public onSubmit() {
+    this.emailAlreadyExist = false;
+    this.confirmPasswordFail = false;
+    console.log('this.registerForm', this.registerForm.value);
+    this.authService
+      .validateEmail(this.registerForm.value.email)
+      .then((data) => {
+        if (data) {
+          this.emailAlreadyExist = true;
+          return;
+        } else {
+          this.emailAlreadyExist = false;
+          if (
+            this.registerForm.value.password !==
+            this.registerForm.value.password_confirmation
+          ) {
+            console.log('this.registerForm', this.registerForm.value);
+            this.confirmPasswordFail = true;
+            return;
+          } else {
+            this.confirmPasswordFail = false;
+          }
 
-    if (this.userService.existUserByEmail(this.registerForm.get('email'))) {
-      alert('User already exist'); //TODO: handle from template
-      return;
-    }
-
-    if(this.registerForm.get('password') !== this.registerForm.get('password_confirmation')){
-      alert('Password and password confirmation must be the same'); //TODO: handle from template
-      return;
-    }
-
-    this.authService.register(this.registerForm.value).then((data) => {
-      console.log('data', data);
-      if (data) {
-        this.router.navigate(['/houses']);
-      } else {
-        console.log('Error en el registro');
-      }
-    });
+          this.authService.register(this.registerForm.value).then((data) => {
+            console.log('data', data);
+            if (data) {
+              this.router.navigate(['/houses']);
+            } else {
+              console.log('Error en el registro');
+            }
+          });
+        }
+      });
   }
 
   public navigateTo(url: string) {
     this.router.navigate([url]);
   }
 
-  //#region form getters
   get email() {
     return this.registerForm.get('email');
   }
@@ -91,5 +101,4 @@ export class RegisterComponent implements OnInit {
   get password_confirmation() {
     return this.registerForm.get('password_confirmation');
   }
-  //#endregion
 }

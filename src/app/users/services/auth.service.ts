@@ -13,20 +13,17 @@ export class AuthService {
   public async login(email: string, password: string): Promise<boolean> {
     let users: User[] = [];
 
+    try {
       let apiResponse = this.userService.getUserByEmailAndPassword(
         email,
         password
-      ).subscribe({
-        next: (data)=>{ 
-          if(!data || !Array.isArray(data) || data.length == 0) return;
-          
-          users = data;
-          this.setActiveUser(users[0].id);
-        },
-        error: (error)=>{
-          console.log(error)
-        }
-      })
+      );
+      users = await lastValueFrom(apiResponse);
+      this.setActiveUser(users[0].id);
+    } catch (error) {
+      console.log(error);
+    }
+
     return users.length == 1;
   }
 
@@ -40,6 +37,18 @@ export class AuthService {
     }
 
     return user.id != 0;
+  }
+
+  public async validateEmail(email: string): Promise<boolean> {
+    let users: User[] = [];
+    try {
+      let apiResponse = this.userService.getUserByEmail(email);
+      users = await lastValueFrom(apiResponse);
+      this.setActiveUser(users[0].id);
+    } catch (error) {
+      console.log(error);
+    }
+    return users.length == 1;
   }
 
   private setActiveUser(id: number) {

@@ -5,10 +5,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HousesModule } from './houses/houses.module';
 import { LandingModule } from './landing/landing.module';
+import { UsersModule } from './users/users.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, HousesModule, LandingModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HousesModule,
+    LandingModule,
+    UsersModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

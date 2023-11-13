@@ -1,0 +1,203 @@
+<ng-template #createModal [ngIf]="showCreateHouseModal">
+  <div
+    class="fixed top-0 left-0 right-0 bottom-0 bg-custom-rgba flex justify-center z-40 overflow-x-hidden overflow-y-auto"
+  >
+    <div
+      class="rounded-lg p-6 shadow-sm shadow-black-100 bg-white z-50 lg:w-4/12 md:w-3/6 w-5/6 my-10 height-60"
+    >
+      <div class="flex justify-end">
+        <button (click)="closeModal()" class="">X</button>
+      </div>
+      <div class="px-6 pt-6">
+        <h4
+          class="text-black-900 text-xl text-center my-2"
+          [innerHTML]="isEditing ? 'Edit property' : 'Add a new property'"
+        ></h4>
+        <form [formGroup]="createHouseForm" class="mt-10">
+          <div class="my-4 w-full">
+            <label for="price" class="block text-xs font-medium text-gray-700">
+              Price
+            </label>
+
+            <input
+              type="number"
+              id="price"
+              placeholder="$5.000"
+              formControlName="price"
+              class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm px-12 py-2"
+            />
+          </div>
+          <div formGroupName="address">
+            <h5>Address</h5>
+            <div class="my-4">
+              <label
+                for="street"
+                class="block text-xs font-medium text-gray-700"
+              >
+                Street
+              </label>
+
+              <input
+                type="text"
+                id="street"
+                placeholder="123 Wallaby Avenue"
+                formControlName="street"
+                class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm px-12 py-2"
+              />
+            </div>
+            <div class="my-4">
+              <label
+                for="district"
+                class="block text-xs font-medium text-gray-700"
+              >
+                District
+              </label>
+
+              <input
+                type="text"
+                id="district"
+                placeholder="Park Road"
+                formControlName="district"
+                class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm px-12 py-2"
+              />
+            </div>
+            <div class="my-4">
+              <label
+                for="country"
+                class="block text-xs font-medium text-gray-700"
+              >
+                Country
+              </label>
+
+              <input
+                type="text"
+                id="country"
+                placeholder="USA"
+                formControlName="country"
+                class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm px-12 py-2"
+              />
+            </div>
+          </div>
+          <div class="my-4">
+            <label
+              for="parking"
+              class="block text-xs font-medium text-gray-700"
+            >
+              Parking
+            </label>
+
+            <input
+              type="number"
+              id="parking"
+              placeholder="2"
+              formControlName="parking"
+              class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm px-12 py-2"
+            />
+          </div>
+          <div class="my-4">
+            <label
+              for="bathrooms"
+              class="block text-xs font-medium text-gray-700"
+            >
+              Bathrooms
+            </label>
+
+            <input
+              type="bathrooms"
+              id="bathrooms"
+              placeholder="3"
+              formControlName="bathrooms"
+              class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm px-12 py-2"
+            />
+          </div>
+          <div class="my-4">
+            <label
+              for="bedrooms"
+              class="block text-xs font-medium text-gray-700"
+            >
+              Bedrooms
+            </label>
+
+            <input
+              type="number"
+              id="bedrooms"
+              placeholder="2"
+              formControlName="bedrooms"
+              class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm px-12 py-2"
+            />
+          </div>
+          <div class="my-4">
+            <label
+              for="description"
+              class="block text-xs font-medium text-gray-700"
+            >
+              Description
+            </label>
+
+            <textarea
+              type="text"
+              id="description"
+              placeholder="An awesome house"
+              formControlName="description"
+              class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm px-12 py-2"
+            ></textarea>
+          </div>
+          <div class="my-4">
+            <label
+              for="contact"
+              class="block text-xs font-medium text-gray-700"
+            >
+              Contact
+            </label>
+
+            <input
+              type="text"
+              id="contact"
+              placeholder="223-562-3131"
+              formControlName="contact"
+              class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm px-12 py-2"
+            />
+          </div>
+          <div class="my-4">
+            <label for="image" class="block text-xs font-medium text-gray-700">
+              Image
+            </label>
+
+            <input
+              type="text"
+              id="image"
+              placeholder="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixl...."
+              formControlName="image"
+              class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm px-12 py-2"
+            />
+          </div>
+          <div class="flex justify-center py-8">
+            <button
+              *ngIf="!isEditing"
+              type="submit"
+              class="bg-teal-600 text-white px-4 py-2 mx-2 rounded-md"
+              (click)="onSubmitCreate()"
+            >
+              Create
+            </button>
+            <button
+              *ngIf="isEditing"
+              type="submit"
+              class="bg-teal-600 text-white px-4 py-2 mx-2 rounded-md"
+              (click)="onSubmitEdit()"
+            >
+              Update
+            </button>
+            <button
+              type="button"
+              class="border border-teal-600 bg-white text-teal-600 px-4 py-2 mx-2 rounded-md"
+              (click)="closeModal()"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</ng-template>

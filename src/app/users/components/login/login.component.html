@@ -1,6 +1,19 @@
-<section class="relative flex flex-wrap lg:h-screen lg:items-center">
+<section
+  class="relative flex sm:flex-row flex-col-reverse flex-wrap lg:h-screen lg:items-center"
+>
   <div class="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
     <div class="mx-auto max-w-lg text-center">
+      <a
+        class="inline-flex h-20 w-20 items-center justify-center rounded-full bg-white text-teal-600 sm:h-20 sm:w-20 hover:cursor-pointer"
+        (click)="navigateTo('/')"
+      >
+        <span class="sr-only">Home</span>
+        <img
+          class="h-20 w-20"
+          src="../../../../assets/casasPNG.png"
+          alt="logo"
+        />
+      </a>
       <h1 class="text-2xl font-bold sm:text-3xl">Get started today!</h1>
 
       <p class="mt-4 text-gray-500">
@@ -9,7 +22,11 @@
       </p>
     </div>
 
-    <form action="" class="mx-auto mb-0 mt-8 max-w-md space-y-4">
+    <form
+      [formGroup]="loginForm"
+      (ngSubmit)="onSubmit()"
+      class="mx-auto mb-0 mt-8 max-w-md space-y-4"
+    >
       <div>
         <label for="email" class="sr-only">Email</label>
 
@@ -18,6 +35,7 @@
             type="email"
             class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
             placeholder="Enter email"
+            formControlName="email"
           />
 
           <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -38,6 +56,25 @@
           </span>
         </div>
       </div>
+      <!-- Email validation -->
+      <div
+        *ngIf="email!.invalid && (email!.dirty || email!.touched)"
+        class="alert alert-danger"
+      >
+        <div
+          *ngIf="email!.errors?.['required']"
+          class="mt-1 w-full text-sm text-red-500"
+        >
+          Email is required.
+        </div>
+        <div
+          *ngIf="email!.errors?.['email']"
+          class="mt-1 w-full text-sm text-red-500"
+        >
+          Invalid email format
+        </div>
+      </div>
+      <!-- End of email validations-->
 
       <div>
         <label for="password" class="sr-only">Password</label>
@@ -47,6 +84,7 @@
             type="password"
             class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
             placeholder="Enter password"
+            formControlName="password"
           />
 
           <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -74,10 +112,31 @@
         </div>
       </div>
 
+      <!-- Password input validation -->
+      <div
+        *ngIf="password!.invalid && (password!.dirty || password!.touched)"
+        class="alert alert-danger"
+      >
+        <div
+          *ngIf="password!.errors?.['required']"
+          class="mt-1 w-full text-sm text-red-500"
+        >
+          Password is required.
+        </div>
+      </div>
+      <div *ngIf="errorLogin" class="mt-1 w-full text-sm text-red-500">
+        User or password incorrect.
+      </div>
+      <!-- End of password input validations-->
+
       <div class="flex items-center justify-between">
         <p class="text-sm text-gray-500">
           No account?
-          <a class="underline" href="">Sign up</a>
+          <a
+            class="underline hover:cursor-pointer"
+            (click)="navigateTo('/register')"
+            >Sign up</a
+          >
         </p>
 
         <button
@@ -90,7 +149,7 @@
     </form>
   </div>
 
-  <div class="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2">
+  <div class="relative h-36 w-full sm:h-96 lg:h-full lg:w-1/2">
     <img
       alt="modern room"
       src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/5d2a0a64273351.5accf5b853db6.jpg"

@@ -1,11 +1,5 @@
 <section class="house-list-section">
-  <!-- aca el ngFor con todas las cards -->
-  <app-house-card></app-house-card>
-  <app-house-card></app-house-card>
-  <app-house-card></app-house-card>
-  <app-house-card></app-house-card>
-  <app-house-card></app-house-card>
-  <app-house-card></app-house-card>
-
-  <app-house-card></app-house-card>
+  <div *ngFor="let house of houses">
+    <app-house-card [house]="house"></app-house-card>
+  </div>
 </section>

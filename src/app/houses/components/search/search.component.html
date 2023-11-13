@@ -1,5 +1,5 @@
 <section class="search-section">
-  <div class="form">
+  <form class="form">
     <div class="border-gray-200 py-4">
       <div class="flex justify-between gap-4">
         <label for="FilterPriceFrom" class="flex items-center gap-2">
@@ -8,28 +8,37 @@
             id="FilterPriceFrom"
             placeholder="From $5.000"
             class="w-full rounded-md p-2.5 pe-10 border-gray-200 shadow sm:text-sm"
+            [(ngModel)] = "priceFrom"
+            (ngModelChange)="onFilterChange()"
+            name="priceFrom"
           />
         </label>
 
         <label for="FilterPriceTo" class="flex items-center gap-2">
           <input
+          name="priceTo"
             type="number"
             id="FilterPriceTo"
             placeholder="To $25.000"
             class="w-full rounded-md p-2.5 pe-10 border-gray-200 shadow sm:text-sm"
+            [(ngModel)] = "priceTo"
+            (ngModelChange)="onFilterChange()"
           />
         </label>
       </div>
+      
     </div>
 
     <div class="relative">
       <label for="Search" class="sr-only"> Search </label>
-
       <input
+      name="Search"
         type="text"
         id="Search"
         placeholder="Search for..."
         class="w-full rounded-md border-gray-200 p-2.5 pe-10 shadow sm:text-sm"
+        [(ngModel)] = "searchInput"
+        (ngModelChange)="onFilterChange()"
       />
 
       <span class="absolute inset-y-0 end-0 grid w-10 place-content-center">
@@ -53,5 +62,5 @@
         </button>
       </span>
     </div>
-  </div>
+  </form>
 </section>

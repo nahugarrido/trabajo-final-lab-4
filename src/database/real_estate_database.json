@@ -2,72 +2,115 @@
   "houses": [
     {
       "id": 1,
-      "price": 10,
+      "price": 1000000,
       "address": {
-        "street": "123 Wallaby Avenue",
-        "district": "Park Road",
-        "country": "USA"
+        "street": "Lewis 4564",
+        "district": "Patagonia",
+        "country": "Argentina"
       },
-      "parking": 2,
-      "bathrooms": 1,
-      "bedrooms": 5,
-      "description": "An awesome house",
-      "image": "imageplaceholder"
+      "parking": 6,
+      "bathrooms": "6",
+      "bedrooms": 10,
+      "description": "Casa en el lago estilo British, se puede jugar al polo de lunes a viernes,  cuenta con cuidador y entrada privada.",
+      "contact": "32-787-2727 Isabel A.",
+      "user_id": 1,
+      "image": "https://www.mintpressnews.com/wp-content/uploads/2019/03/S14vIujK4x_1200x0_edited.jpg"
     },
     {
       "id": 2,
-      "price": 10,
+      "price": 100000,
       "address": {
-        "street": "123 Wallaby Avenue",
-        "district": "Park Road",
+        "street": "Central Bark 5481",
+        "district": "Mar de las Pompas",
         "country": "USA"
       },
       "parking": 2,
       "bathrooms": 1,
       "bedrooms": 5,
-      "description": "An awesome house",
-      "image": "imageplaceholder"
+      "description": "En su pasado fue una gran imprenta, se vende por demolición inminente.",
+      "contact": "223-562-3131",
+      "user_id": 1,
+      "image": "https://www.lavoz.com.ar/resizer/7XTSLnv7Nq7iynuNObkO502wioM=/980x640/smart/filters:quality(75):format(webp)/cloudfront-us-east-1.images.arcpublishing.com/grupoclarin/IXCVICTS5NGEXM2DXFSOIFOOTE.jpg"
     },
     {
       "id": 3,
-      "price": 10,
+      "price": 230000,
       "address": {
-        "street": "123 Wallaby Avenue",
-        "district": "Park Road",
-        "country": "USA"
+        "street": "Olivos 235",
+        "district": "Parque Patricios",
+        "country": "Argentina"
       },
-      "parking": 2,
-      "bathrooms": 1,
-      "bedrooms": 5,
-      "description": "An awesome house",
-      "image": "imageplaceholder"
+      "parking": 7,
+      "bathrooms": "12",
+      "bedrooms": 12,
+      "description": "Propiedad historica en el casco de parque patricios, precio negociable.",
+      "contact": "223-562-3131 Marcela L.",
+      "user_id": 4,
+      "image": "https://www.notitdf.com/wp-content/uploads/2022/11/investigan-reuniones-jueces-casacio-con-macri-casa-rosada-olivos_44154.jpg"
     },
     {
       "id": 4,
-      "price": 10,
+      "price": 3200000,
       "address": {
-        "street": "321 Wallaby Avenue",
-        "district": "Park Road",
-        "country": "USA"
+        "street": "Puerto Campana 524",
+        "district": "Marbella",
+        "country": "España"
       },
-      "parking": 2,
-      "bathrooms": 1,
+      "parking": 0,
+      "bathrooms": "3",
       "bedrooms": 5,
-      "description": "An awesome house",
-      "image": "imageplaceholder"
+      "description": "Yate de lujo, hecho con las maderas mas finas, ideal para invitar a tus amigos a pasar un fin de semana en Marbella, negocio redituable.",
+      "contact": "223-562-3131",
+      "user_id": 4,
+      "image": "https://www.lanacion.com.ar/resizer/v2/asi-es-el-yate-donde-martin-insaurralde-paseo-con-UTMSBHRCI5HNHCXMRVBO3ZQUEY.jpg?auth=462da2cfeb9eab471aa58587e1b80db3357e01f955d6e8fba44e2807b92e8487&width=880&height=586&quality=70&smart=true"
     },
     {
-      "price": 20,
+      "id": 5,
+      "price": 200000,
       "address": {
-        "street": "777 Wallaby Avenue",
-        "district": "Park Road",
-        "country": "USA"
+        "street": "Casa Rosada 789",
+        "district": "Capital Federal",
+        "country": "Argentina"
       },
-      "parking": 3,
-      "bathrooms": 1,
-      "bedrooms": 5,
-      "description": "An awesome house",
-      "id": 5
+      "parking": 12,
+      "bathrooms": "12",
+      "bedrooms": 12,
+      "description": "La vendo porque ya no la uso, ahora hago home office.",
+      "contact": "223-562-3131 Anonimo",
+      "user_id": 4,
+      "image": "https://www.ellitoral.com/images/2023/08/16/h6aWMqCPy_870x0__1.jpg"
+    },
+    {
+      "id": 6,
+      "price": 10000000,
+      "address": {
+        "street": "Néstor Kinder 4564",
+        "district": "Calafate",
+        "country": "Argentina"
+      },
+      "parking": 20,
+      "bathrooms": "40",
+      "bedrooms": 40,
+      "description": "Excelente hotel ubicado en el sur del pais, esta ocupado 24/7 los 365 días del año, excelente oportunidad comercial.",
+      "contact": "111-111-111 Lazaro Bullrich",
+      "user_id": 4,
+      "image": "https://www.infobae.com/new-resizer/CpBD7-D287bSKUh4e0JON-AII6U=/filters:format(webp):quality(85)/s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2017/02/12041412/Alto-Calafate-NA.jpg"
+    },
+    {
+      "id": 7,
+      "price": 1,
+      "address": {
+        "street": "Convento 1202",
+        "district": "Salta",
+        "country": "Argentina"
+      },
+      "parking": 0,
+      "bathrooms": "6",
+      "bedrooms": 12,
+      "description": "Pintoresca propiedad en un paramo remoto en las altas montañas de Salta, los vecinos son molestos, a veces tiran bolsos sobre la medianera.",
+      "contact": "454-757-262 Mona Gimenez",
+      "user_id": 4,
+      "image": "https://resizer.glanacion.com/resizer/v2/la-entrada-a-la-capilla-donde-la-policia-encontro-SCUMXGP2HZFIHPLLEAPMHNVEEE.JPG?auth=a5c9e95ffb2642058f317d8aeeea092bf8b1f14c6ba4653e856f10965176b838&width=420&height=280&quality=70&smart=true"
     }
   ],
   "users": [
@@ -94,6 +137,48 @@
       "last_name": "Gomez",
       "password": "password",
       "role": "USER"
+    },
+    {
+      "email": "admin@admin.com",
+      "password": "admin",
+      "first_name": "admin",
+      "last_name": "terminator",
+      "role": "USER",
+      "id": 4
+    },
+    {
+      "email": "sdfs@asdas.com",
+      "password": "asd123",
+      "first_name": "sfdfsd",
+      "last_name": "sdfsdfsd",
+      "role": "USER",
+      "id": 5
+    },
+    {
+      "email": "asdas@a.com",
+      "first_name": "asdas",
+      "last_name": "asdas",
+      "password": "asd123",
+      "role": "USER",
+      "id": 6
+    },
+    {
+      "email": "pablo@gmail.com",
+      "first_name": "pablito",
+      "last_name": "clavo un clavito",
+      "password": "asd123",
+      "password_confirmation": "asd123",
+      "role": "USER",
+      "id": 7
+    },
+    {
+      "email": "asd@asd.com",
+      "first_name": "asd",
+      "last_name": "asd",
+      "password": "asd",
+      "password_confirmation": "asd",
+      "role": "USER",
+      "id": 8
     }
   ]
 }

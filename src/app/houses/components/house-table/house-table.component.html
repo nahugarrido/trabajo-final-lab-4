@@ -1,0 +1,121 @@
+<app-modal-create-house
+  (updateHouses)="handleUpdateHouses()"
+></app-modal-create-house>
+<app-modal-confirm
+  [title]="'Delete Property'"
+  [message]="'Are you sure you want to delete this property?'"
+></app-modal-confirm>
+<div class="overflow-x-auto">
+  <div class="flex justify-center">
+    <a
+      class="inline-block rounded bg-teal-600 w-4/5 sm:w-2/5 px-20 py-2 my-8 mx-2 text-xs font-medium text-white hover:bg-teal-700 text-center hover:cursor-pointer"
+      (click)="openCreateModal()"
+    >
+      Add
+    </a>
+  </div>
+  <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+    <thead class="ltr:text-left rtl:text-right text-left">
+      <tr>
+        <th class="px-4 py-2 font-medium text-gray-900">Address</th>
+        <th
+          class="px-4 py-2 font-medium text-gray-900"
+          *ngIf="this.windowInnerWidth >= 520"
+        >
+          Image
+        </th>
+
+        <th
+          class="whitespace-nowrap px-4 py-2 font-medium text-gray-900"
+          *ngIf="this.windowInnerWidth >= 520"
+        >
+          Price
+        </th>
+        <th
+          class="whitespace-nowrap px-4 py-2 font-medium text-gray-900"
+          *ngIf="this.windowInnerWidth >= 768"
+        >
+          Parking
+        </th>
+        <th
+          class="whitespace-nowrap px-4 py-2 font-medium text-gray-900"
+          *ngIf="this.windowInnerWidth >= 768"
+        >
+          Bathroom
+        </th>
+        <th
+          class="whitespace-nowrap px-4 py-2 font-medium text-gray-900"
+          *ngIf="this.windowInnerWidth >= 640"
+        >
+          Bedroom
+        </th>
+        <th class="px-4 py-2"></th>
+      </tr>
+    </thead>
+
+    <tbody class="divide-y divide-gray-200">
+      <tr *ngFor="let house of houses">
+        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          <span>{{ house.address.street }}</span>
+          <span *ngIf="this.windowInnerWidth >= 1280"
+            >, {{ house.address.district }}</span
+          >
+          <span *ngIf="this.windowInnerWidth >= 768"
+            >, {{ house.address.country }}</span
+          >
+        </td>
+        <td
+          class="whitespace-nowrap px-4 py-2 text-gray-700"
+          *ngIf="this.windowInnerWidth >= 520"
+        >
+          <img
+            class="w-8 h-8 sm:w-12 sm:h-12 rounded-full"
+            src="{{ house.image }}"
+            alt=""
+          />
+        </td>
+        <td
+          class="whitespace-nowrap px-4 py-2 text-gray-700"
+          *ngIf="this.windowInnerWidth >= 520"
+        >
+          {{ house.price | currency }}
+        </td>
+        <td
+          class="whitespace-nowrap px-4 py-2 text-gray-700"
+          *ngIf="this.windowInnerWidth >= 768"
+        >
+          {{ house.parking }}
+        </td>
+        <td
+          class="whitespace-nowrap px-4 py-2 text-gray-700"
+          *ngIf="this.windowInnerWidth >= 768"
+        >
+          {{ house.bathrooms }}
+        </td>
+
+        <td
+          class="whitespace-nowrap px-4 py-2 text-gray-700"
+          *ngIf="this.windowInnerWidth >= 640"
+        >
+          {{ house.bedrooms }}
+        </td>
+        <td
+          class="whitespace-nowrap px-4 py-2 text-gray-700 flex justify-center"
+        >
+          <a
+            class="inline-block rounded bg-teal-600 px-4 py-2 mx-2 text-xs font-medium text-white hover:bg-teal-700 hover:cursor-pointer"
+            (click)="openEditModal(house)"
+          >
+            Edit
+          </a>
+          <a
+            class="inline-block rounded bg-teal-300 px-4 py-2 mx-2 text-xs font-medium text-white hover:bg-red-400 hover:cursor-pointer"
+            (click)="openDeleteModal(house)"
+          >
+            Delete
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
